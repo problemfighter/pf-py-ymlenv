@@ -1,0 +1,2 @@
+class PFPYConfigObj(object):
+    pass

@@ -78,7 +78,7 @@ def clone_pull_setup(projects: dict):
 source_projects = {
     "dir": LIBRARY_DEPENDENCY,
     "repositories": {
-        "xxxxxx": "https://github.com/problemfighter/xxxxxxx.git",
+        "pf-py-common": "https://github.com/problemfighter/pf-py-common.git",
     }
 }
 

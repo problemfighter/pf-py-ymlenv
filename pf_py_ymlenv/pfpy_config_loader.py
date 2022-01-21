@@ -1,6 +1,6 @@
 import os
 import yaml
-from pf_py_common.pf_exception import PFException
+# from pf_py_common.pf_exception import PFException
 from pf_py_ymlenv.pfpy_config_obj import PFPYConfigObj
 from pf_py_ymlenv.pfpy_file_util import PFPYFileUtil
 
@@ -22,7 +22,9 @@ class PFPYConfigLoader:
         self.env_file = env_file
         self.raise_error_if_not_found = raise_error_if_not_found
         yaml_dict = self._load_yaml()
-        if yaml_dict and config_obj and isinstance(config_obj, PFPYConfigObj):
+        if not yaml_dict and config_obj:
+            return config_obj
+        elif yaml_dict and config_obj and isinstance(config_obj, PFPYConfigObj):
             return self._map_to_config_object(yaml_dict)
         return yaml_dict
 
@@ -60,7 +62,8 @@ class PFPYConfigLoader:
 
     def _raise_exception(self, value, message="Value Not Found"):
         if not value and self.raise_error_if_not_found:
-            raise PFException(message)
+            pass
+            # raise PFException(message)
         return value
 
 

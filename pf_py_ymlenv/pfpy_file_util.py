@@ -1,6 +1,6 @@
 import os
 from functools import reduce
-from os.path import exists
+from os.path import exists, join
 
 
 class PFPYFileUtil:
@@ -8,7 +8,7 @@ class PFPYFileUtil:
 
     @staticmethod
     def concat_path(first, last, *more_path):
-        path = os.path.join(first, last)
+        path = join(first, last)
         if len(more_path) > 0:
             path = os.path.join(path, reduce(os.path.join, more_path))
         return path

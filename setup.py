@@ -5,16 +5,16 @@ import pathlib
 CURRENT_DIR = pathlib.Path(__file__).parent
 README = (CURRENT_DIR / "readme.md").read_text()
 
-env = os.environ.get('dev')
+env = os.environ.get('source')
 
 
 def get_dependencies():
-    dependency = []
+    dependency = ['pyyaml']
 
     if env and env == "dev":
         return dependency
 
-    return dependency + []
+    return dependency + ['PF-PY-Common']
 
 
 setup(

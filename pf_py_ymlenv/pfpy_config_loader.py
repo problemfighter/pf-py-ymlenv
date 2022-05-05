@@ -1,6 +1,5 @@
 import os
 import yaml
-# from pf_py_common.pf_exception import PFException
 from pf_py_ymlenv.pfpy_config_obj import PFPYConfigObj
 from pf_py_ymlenv.pfpy_file_util import PFPYFileUtil
 

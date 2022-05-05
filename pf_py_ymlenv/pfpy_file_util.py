@@ -17,6 +17,11 @@ class PFPYFileUtil:
     def is_exists_path(path):
         return exists(path)
 
+    @staticmethod
+    def delete_file(path):
+        if PFPYFileUtil.is_exists_path(path):
+            os.remove(path)
+
     def concat_with_root(self, *paths):
         if paths:
             return os.path.join(self.PROJECT_ROOT_DIR, reduce(os.path.join, paths))

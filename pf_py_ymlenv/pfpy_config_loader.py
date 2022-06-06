@@ -55,6 +55,10 @@ class PFPYConfigLoader:
 
     def _get_config_file_name(self):
         env = os.environ.get('env')
+        env_name = "Local"
+        if env:
+            env_name = env
+        print("Environment: " + str(env_name))
         if env:
             return "env-" + env + ".yml"
         return self.default_env_file_name

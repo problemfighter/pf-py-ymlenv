@@ -27,6 +27,12 @@ class PFPYConfigLoader:
             return self._map_to_config_object(yaml_dict)
         return yaml_dict
 
+    def merge_config(self, existing_config):
+        yaml_dict = self._load_yaml()
+        for dict_key in yaml_dict:
+            if hasattr(existing_config, dict_key):
+                setattr(existing_config, dict_key, yaml_dict[dict_key])
+
     def _load_yaml(self):
         env_file = self._get_env_file(self.env_file)
         self._raise_exception(env_file, "YAML file not found!")

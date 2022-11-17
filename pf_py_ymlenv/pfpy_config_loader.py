@@ -29,9 +29,10 @@ class PFPYConfigLoader:
 
     def merge_config(self, existing_config):
         yaml_dict = self._load_yaml()
-        for dict_key in yaml_dict:
-            if hasattr(existing_config, dict_key):
-                setattr(existing_config, dict_key, yaml_dict[dict_key])
+        if yaml_dict:
+            for dict_key in yaml_dict:
+                if hasattr(existing_config, dict_key):
+                    setattr(existing_config, dict_key, yaml_dict[dict_key])
 
     def _load_yaml(self):
         env_file = self._get_env_file(self.env_file)

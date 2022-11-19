@@ -10,6 +10,7 @@ class PFPYConfigLoader:
     config_obj: PFPYConfigObj = None
     env_file: str = None
     raise_error_if_not_found: bool = False
+    is_print_env: bool = False
 
     def load(self,
              env_file: str = None,
@@ -65,7 +66,9 @@ class PFPYConfigLoader:
         env_name = "Local"
         if env:
             env_name = env
-        print("Environment: " + str(env_name))
+        if not self.is_print_env:
+            print("Environment: " + str(env_name))
+            self.is_print_env = True
         if env:
             return "env-" + env + ".yml"
         return self.default_env_file_name
